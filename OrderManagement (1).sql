@@ -1,0 +1,10 @@
+create database OrderManagement;
+use OrderManagement;
+create table customer(c_id int,c_name varchar(30),Ph_No varchar(10),Email varchar(50),Address varchar(100),primary key(c_id));
+create table category (category_id int,p_type varchar(20),primary key (category_id));
+create table orderDetails(o_id int,p_id int ,quantity int,c_id int,primary key(o_id),foreign key(c_id) references customer(c_id),foreign key (p_id) references product_info(p_id));
+create table product_info(p_id int,p_name varchar(30),p_price int,category_id int,primary key(p_id),foreign key(category_id) references category(category_id));
+insert into customer(c_id,c_name,Ph_No,Email,Address) values(1,"arjun",1235457789,"arjunselladurai@gmail.com","attur"),(2,"sasi",188357789,"sasi09@gmail.com","namakal"),(3,"vishnu",123789989,"shrivishnu@gmail.com","salem"),(4,"vignesh",1235454789,"vignesh@gmail.com","namakkal"),(5,"murali",23787789,"hari@gmail.com","salem");
+insert into category(category_id ,p_type) values(1,"ipad"),(2,"bag"),(3,"watch"),(4,"mobile"),(5,"laptop");
+insert into orderDetails(o_id,p_id,quantity,c_id) values(10,1000,2,1),(11,1001,3,2),(12,1002,2,3),(13,1003,4,4),(14,1004,2,5);
+insert into product_info(p_id,p_name,p_price,category_id) values(1000,"fasttrack",1500,3),(1001,"compiler design",500,2),(1002,"Iqoo 12pro",50000,1),(1003,"craloft",450,4),(1004,"asus zephyrus16",395000,5);
